@@ -2,7 +2,7 @@ class HiddenWord
 
   attr_accessor :word
 
-def initialize(word)
+  def initialize(word)
 
   @word = word
 
@@ -17,7 +17,7 @@ def initialize(word)
         word_to_display.push("*")
       end
     end
-  return word_to_display.join
+    return word_to_display.join
   end
 
   def check_letter(letter)
@@ -25,11 +25,16 @@ def initialize(word)
     return false
   end
 
-  def is_guessed?(letters)
-    return true if @word.chars == letters
-    return false
+  # def is_guessed?(letters)
+  #   return true if @word.chars.include?(letters)
+  #   return false
+  # end
 
+  def is_guessed?(letters)
+    return true if !display_word(letters).include?("*")
+    return false
   end
+
 
   # def star_removal
   #   word_to_display = []
